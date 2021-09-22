@@ -22,6 +22,7 @@
 		9A7B5B8126F5C3E20083E285 /* MinePageContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A7B5B8026F5C3E20083E285 /* MinePageContentView.swift */; };
 		9ACDCC1D26FB08A300B2443C /* UserListContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ACDCC1C26FB08A300B2443C /* UserListContentView.swift */; };
 		9ACDCC2026FB18BD00B2443C /* TabBarContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ACDCC1F26FB18BD00B2443C /* TabBarContentView.swift */; };
+		9ACDCC2226FBB2C400B2443C /* UserDetailContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ACDCC2126FBB2C400B2443C /* UserDetailContentView.swift */; };
 		A56FF837F266416CE2D7AE91 /* Pods_UserSwiftUI_UserSwiftUIUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E0BE134833CD3046A7EEE762 /* Pods_UserSwiftUI_UserSwiftUIUITests.framework */; };
 		E2CA1EC82973F588F81E02BE /* Pods_UserSwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E5E80F5C21AEDA431C7879C /* Pods_UserSwiftUI.framework */; };
 /* End PBXBuildFile section */
@@ -71,6 +72,7 @@
 		9A7B5B8026F5C3E20083E285 /* MinePageContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MinePageContentView.swift; sourceTree = "<group>"; };
 		9ACDCC1C26FB08A300B2443C /* UserListContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListContentView.swift; sourceTree = "<group>"; };
 		9ACDCC1F26FB18BD00B2443C /* TabBarContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarContentView.swift; sourceTree = "<group>"; };
+		9ACDCC2126FBB2C400B2443C /* UserDetailContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailContentView.swift; sourceTree = "<group>"; };
 		E0BE134833CD3046A7EEE762 /* Pods_UserSwiftUI_UserSwiftUIUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UserSwiftUI_UserSwiftUIUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE84D31B086A7207A94DE731 /* Pods-UserSwiftUI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UserSwiftUI.debug.xcconfig"; path = "Target Support Files/Pods-UserSwiftUI/Pods-UserSwiftUI.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -209,6 +211,7 @@
 		9A7B5B7B26F5C3A90083E285 /* UserDetail */ = {
 			isa = PBXGroup;
 			children = (
+				9ACDCC2126FBB2C400B2443C /* UserDetailContentView.swift */,
 			);
 			path = UserDetail;
 			sourceTree = "<group>";
@@ -478,6 +481,7 @@
 				9A7B5B8126F5C3E20083E285 /* MinePageContentView.swift in Sources */,
 				9A7B5B4C26F584E30083E285 /* SceneDelegate.swift in Sources */,
 				9ACDCC1D26FB08A300B2443C /* UserListContentView.swift in Sources */,
+				9ACDCC2226FBB2C400B2443C /* UserDetailContentView.swift in Sources */,
 				9A7B5B7D26F5C3C90083E285 /* MinePageVC.swift in Sources */,
 				9ACDCC2026FB18BD00B2443C /* TabBarContentView.swift in Sources */,
 				9A7B5B4E26F584E30083E285 /* ContentView.swift in Sources */,
