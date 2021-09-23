@@ -6,22 +6,77 @@
 //
 
 import SwiftUI
+//import RxSwift
+//import XCTest
 
 struct UserDetailContentView: View {
+    
+    
+//    @Binding var isPresented: Bool
+
+    @ObservedObject  var  viewModel = UserDetailVM()
+    
+    @Environment(\.presentationMode) var presentationMode
+    
+//    @Binding var user:UserListModel?
+    
+    
+//
+    private let _user:UserListModel?
+
+    init(user:UserListModel?){
+
+
+        print("userDetail init囉" , user?.login)
+        self._user = user
+
+
+        self.viewModel.loadUserDetail(login: user?.login)
+//        self.viewModel.loadUserDetail(login: "mojombo")
+
+
+    }
+ 
+    
     var body: some View {
-        
+
+
         VStack{
             
-            //userPhoto
             VStack{
-                Image(systemName: "photo")
-                    .resizable()
+                //btnDismiss
+                HStack{
+                    Button(  action: {
+                        //                    self.isPresented = false
+                        self.presentationMode.wrappedValue.dismiss()
+                    }){
+                        Image(systemName: "multiply")
+                            .resizable()
+                            .foregroundColor(.black)
+                        
+                    }.frame(width: 20, height: 20, alignment: .leading).offset(x: 30, y: 0)
+                    
+                    Spacer()
+                }
+                
+                //userPhoto
+//                Image(systemName: "photo")
+                
+//                RemoteImage(url: viewModel.userDetail?.userPhotoURL?.absoluteString ?? "")
+//                RemoteImage(url: self.user?.avatar_url ?? "")
+                CustomImageView(withURL: viewModel.userDetail?.userPhotoURL?.absoluteString ?? "")
+
+//                    .resizable()
                     .clipShape(/*@START_MENU_TOKEN@*/Circle()/*@END_MENU_TOKEN@*/)
                     .frame(width: 150, height: 150, alignment: .center)
                 
-                Text("Name").padding(.top, /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
+                Text(viewModel.userDetail?.fullName ?? "").padding(.top, /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
                 
-            }
+            }.onAppear(perform: {
+                
+                print("上面appear")
+                
+            })
             
             
         
@@ -31,15 +86,27 @@ struct UserDetailContentView: View {
             VStack(alignment:.leading){
              
                 Spacer(minLength: 10)
-                Label("Name", systemImage: "photo")
+                
+                //nickName
+//                viewModel.userDetail?.nickName.map({
+//
+////                    Text($0)
+//                    Label($0, systemImage: "person.fill")
+//                })
+                Label(viewModel.userDetail?.login ?? "" , systemImage: "person.fill")
+                
                 Spacer()
-                Label("Location", systemImage: "photo")
+                
+                //Location
+        
+                Label(viewModel.userDetail?.location ?? "", systemImage: "location.fill")
                 Spacer()
-                Label("URL", systemImage: "photo")
+                //Link
+                Label(self.viewModel.userDetail?.link ?? "", systemImage: "link")
                 Spacer()
                 
             }.frame(width: .infinity, height: 300, alignment: .leading)
-            .offset(x: 100, y: 0)
+            .offset(x: 70, y: 0)
                 
                 Spacer()
             }
@@ -47,7 +114,17 @@ struct UserDetailContentView: View {
             
             Spacer()
         }.offset(x: 0, y: 30)
-        
+            .onAppear(perform: {
+//                print("appear了ㄛ",self._user?.login)
+
+                print("appear了ㄛ")
+//                self.viewModel.loadUserDetail(login: "mojombo")
+                
+            })
+            .onDisappear(perform: {
+
+                print("disappear了ㄛ")
+            })
         
       
         
@@ -56,8 +133,8 @@ struct UserDetailContentView: View {
     }
 }
 
-struct UserDetailContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        UserDetailContentView()
-    }
-}
+//struct UserDetailContentView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        UserDetailContentView(user: Binding<UserListModel?>(nil))
+//    }
+//}
