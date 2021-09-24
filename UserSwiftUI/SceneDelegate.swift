@@ -19,8 +19,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
 
         // Create the SwiftUI view that provides the window contents.
-        let contentView = ContentView()
+//        let contentView = ContentView()
 
+        
+        
+        
+        let contentView = TabBarContentView()
+        
         // Use a UIHostingController as window root view controller.
         if let windowScene = scene as? UIWindowScene {
             let window = UIWindow(windowScene: windowScene)
@@ -28,6 +33,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             self.window = window
             window.makeKeyAndVisible()
         }
+        
+        self.configNavBar()
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
@@ -61,3 +68,22 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
 }
 
+
+
+
+extension SceneDelegate{
+    
+    
+    func configNavBar(){
+        let newAppearance = UINavigationBarAppearance()
+            newAppearance.configureWithOpaqueBackground()
+            newAppearance.backgroundColor = .black
+            newAppearance.titleTextAttributes = [.foregroundColor: UIColor.white]
+        newAppearance.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
+            UINavigationBar.appearance().standardAppearance = newAppearance
+       
+        UINavigationBar.appearance().scrollEdgeAppearance = newAppearance
+        
+        
+    }
+}
