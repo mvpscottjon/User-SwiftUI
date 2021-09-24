@@ -168,67 +168,67 @@ extension UserService {
     }
     
     
-//    
-//    
-//    func getMineUserData(token:String?, completion: @escaping((UserDetailModel?,Error?) -> Void)){
-//        
-//        
-////        print("開始跑getUSer:",login)
-//        
-//        guard let token = token  else {
-//            
-//            print("沒有token")
-//            
-//            completion(nil,ServiceError.noParameters)
-//
-//            return}
-//        
-//        
-//        
-//        let component = URLComponents(string: "https://api.github.com/user/")
-//
-//        var header = baseHeader
-////   34
-//        header.add(name: "Authorization", value: "token \(token)")
-//
-//        guard let url = component?.url else {
-//            completion(nil,ServiceError.urlFailed)
-//
-//            return}
-//        
-//        var req =  URLRequest(url: url)
-//        req.headers = header
-//        req.method = .get
-//        
-//        URLSession.shared.dataTask(with: req, completionHandler: {data, response, err in
-//            
-//            guard let data = data else {
-//                print("沒有data",err as Any)
-//                completion(nil,ServiceError.noData)
-//
-//                return}
-//            
-//
-//            
-//            guard let obj = try? JSONDecoder().decode(UserDetailModel.self, from: data) else {
-//                
-//                print("解失敗")
-//                completion(nil,ServiceError.jsonDecodeFailed)
-//
-//                return}
-//            
-////                                print("解完",obj)
-//                    
-//            completion(obj,nil)
-//            
-//            
-//            
-//        }).resume()
-//        
-//        
-//        
-//    }
-//    
+    
+    
+    func getMineUserData(token:String?, completion: @escaping((UserDetailModel?,Error?) -> Void)){
+        
+        
+//        print("開始跑mine:")
+        
+        guard let token = token  else {
+            
+            print("沒有token")
+            
+            completion(nil,ServiceError.noParameters)
+
+            return}
+        
+        
+        
+        let component = URLComponents(string: "https://api.github.com/user")
+
+        var header = baseHeader
+
+        header.add(name: "Authorization", value: "token \(token)")
+
+        guard let url = component?.url else {
+            completion(nil,ServiceError.urlFailed)
+
+            return}
+        
+        var req =  URLRequest(url: url)
+        req.headers = header
+        req.method = .get
+        
+        URLSession.shared.dataTask(with: req, completionHandler: {data, response, err in
+            
+            guard let data = data else {
+                print("沒有data",err as Any)
+                completion(nil,ServiceError.noData)
+
+                return}
+            
+
+            
+            guard let obj = try? JSONDecoder().decode(UserDetailModel.self, from: data) else {
+                
+                print("解失敗")
+                completion(nil,ServiceError.jsonDecodeFailed)
+
+                return}
+            
+//                                print("解完",obj)
+                    
+            completion(obj,nil)
+            
+            
+            
+        }).resume()
+        
+        
+        
+    }
+    
     
     
     

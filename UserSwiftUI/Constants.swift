@@ -11,7 +11,7 @@ import Foundation
 struct Constants {
     
     
-   static let token = "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"
+   static let token = "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"
     
     
 }

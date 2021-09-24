@@ -31,13 +31,24 @@ extension MinePageVM{
     
     func loadMyUserData(){
         
+//
+//        UserService.shared.getUser(login: "mvpscottjon", token: Constants.token, completion: {obj, err in
+//
+//
+//            DispatchQueue.main.async {
+//                self.userDetail = UserDetailSubVM(user: obj)
+//
+//            }
+//
+//
+//        })
         
-        UserService.shared.getUser(login: "mvpscottjon", token: Constants.token, completion: {obj, err in
+        UserService.shared.getMineUserData(token: Constants.token, completion: {obj, err in
             
             
             DispatchQueue.main.async {
                 self.userDetail = UserDetailSubVM(user: obj)
-
+                
             }
             
             
