@@ -28,7 +28,7 @@ class UserListVM:  ObservableObject {
 extension UserListVM{
     
     func loadUserListFirstTime(){
-        print("有跑loadUserList哦")
+//        print("有跑loadUserList哦")
    
         
         

@@ -27,64 +27,55 @@ struct UserListContentView: View {
     var body: some View {
         
       
-//        NavigationView {
-
+     
         //MARK: List
-       
-            
+        
+        
+        
+        Group{
             
             List(viewModel.users) {
-            user in
-//           NavigationLink(
-//            destination: UserDetailContentView(),
-//            label: {
+                user in
+               
                 
                 
-                
-                
-//            })
-         
-            
                 UserRowContentView(user: user)
-//                .listStyle(GroupedListStyle())
-//                .listRowInsets(.init())
-                .onTapGesture {
-                    print("row tap", user)
-                    self.selectedUser = user
-                    self.showModal.toggle()
-                }
-                .onAppear(perform: {
-                    self.viewModel.loadMoreUserList()
-
+           
+                    .onTapGesture {
+//                        print("row tap", user)
+                        self.selectedUser = user
+                        self.showModal.toggle()
+                    }
                     
-                })
-            
-            
-            
+                
+                    .onAppear(perform: {
+                        self.viewModel.loadMoreUserList()
+                        
+                        
+                    })
+                
+                
+                
             }
-              
-        
-        .environment(\.defaultMinListRowHeight, 80)
-        
-
             
-        
             
-//        .navigationBarTitle("Github")
+            .environment(\.defaultMinListRowHeight, 80)
+            
+            
+            
+        }
         
-//        }
         .sheet(isPresented: $showModal, content: {
             
-//            UserDetailContentView(user: self.$selectedUser)
             
-                UserDetailContentView(user: self.$selectedUser.wrappedValue)
+            
+            UserDetailContentView(user: self.$selectedUser.wrappedValue)
+            
+        
+            
         })
-        .onAppear{
-            
-            print("list appear ")
-//            self.viewModel.loadUserList()
-        }
-           
+      
+     
             
     }
 }

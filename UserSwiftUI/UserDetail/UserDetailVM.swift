@@ -26,14 +26,14 @@ extension UserDetailVM{
     
     func loadUserDetail(login:String?){
         
-        print("跑loadUserDetail," , login)
+//        print("跑loadUserDetail," , login)
         
         UserService.shared.getUser(login: login, token: Constants.token,completion: { obj, err in
             
             guard err == nil else {return}
             
             
-            print("回來了哦",obj)
+//            print("回來了哦",obj)
             
             DispatchQueue.main.async {
                 self.userDetail = UserDetailSubVM(user: obj)

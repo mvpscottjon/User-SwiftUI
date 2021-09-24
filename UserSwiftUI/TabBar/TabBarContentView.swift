@@ -44,20 +44,12 @@ struct TabBarContentView: View {
                     .highPriorityGesture(DragGesture().onEnded({ self.handeSwipe(translation: $0.translation.width) }))
 
             
-//                Text("123").tabItem({
-//                    Text("User")
-//
-//                })
-//
-//                Text("456").tabItem({
-//                    Text("Mine")
-//
-//                })
+// 
             }
             .navigationBarTitle("Github")
 //            .tabViewStyle(.page)
 //            .tabViewStyle(PageTabViewStyle())
-            .tabViewStyle(DefaultTabViewStyle())
+//            .tabViewStyle(DefaultTabViewStyle())
             
             .accentColor(.black)
             

@@ -27,13 +27,12 @@ struct UserDetailContentView: View {
     init(user:UserListModel?){
 
 
-        print("userDetail init囉" , user?.login)
+//        print("userDetail init囉" , user?.login)
         self._user = user
 
 
+        
         self.viewModel.loadUserDetail(login: user?.login)
-//        self.viewModel.loadUserDetail(login: "mojombo")
-
 
     }
  
@@ -42,6 +41,9 @@ struct UserDetailContentView: View {
 
 
         VStack{
+            
+ 
+            
             
             VStack{
                 //btnDismiss
@@ -60,10 +62,7 @@ struct UserDetailContentView: View {
                 }
                 
                 //userPhoto
-//                Image(systemName: "photo")
-                
-//                RemoteImage(url: viewModel.userDetail?.userPhotoURL?.absoluteString ?? "")
-//                RemoteImage(url: self.user?.avatar_url ?? "")
+
                 CustomImageView(withURL: viewModel.userDetail?.userPhotoURL?.absoluteString ?? "")
 
 //                    .resizable()
@@ -72,11 +71,7 @@ struct UserDetailContentView: View {
                 
                 Text(viewModel.userDetail?.fullName ?? "").padding(.top, /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
                 
-            }.onAppear(perform: {
-                
-                print("上面appear")
-                
-            })
+            }
             
             
         
@@ -88,11 +83,7 @@ struct UserDetailContentView: View {
                 Spacer(minLength: 10)
                 
                 //nickName
-//                viewModel.userDetail?.nickName.map({
-//
-////                    Text($0)
-//                    Label($0, systemImage: "person.fill")
-//                })
+
                 Label(viewModel.userDetail?.login ?? "" , systemImage: "person.fill")
                 
                 Spacer()
@@ -105,7 +96,7 @@ struct UserDetailContentView: View {
                 Label(self.viewModel.userDetail?.link ?? "", systemImage: "link")
                 Spacer()
                 
-            }.frame(width: .infinity, height: 300, alignment: .leading)
+            }.frame(width:  UIScreen.main.bounds.width , height: 300, alignment: .leading)
             .offset(x: 70, y: 0)
                 
                 Spacer()
@@ -114,21 +105,8 @@ struct UserDetailContentView: View {
             
             Spacer()
         }.offset(x: 0, y: 30)
-            .onAppear(perform: {
-//                print("appear了ㄛ",self._user?.login)
 
-                print("appear了ㄛ")
-//                self.viewModel.loadUserDetail(login: "mojombo")
-                
-            })
-            .onDisappear(perform: {
-
-                print("disappear了ㄛ")
-            })
-        
-      
-        
-        
+    
         
     }
 }

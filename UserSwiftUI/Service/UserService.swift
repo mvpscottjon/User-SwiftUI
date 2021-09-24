@@ -114,7 +114,7 @@ extension UserService {
         
         guard let login = login, let token = token  else {
             
-            print("沒有token or login", login, token)
+//            print("沒有token or login", login as Any, token as Any)
             
             completion(nil,ServiceError.noParameters)
 
@@ -141,7 +141,7 @@ extension UserService {
         URLSession.shared.dataTask(with: req, completionHandler: {data, response, err in
             
             guard let data = data else {
-                print("沒有data",err)
+                print("沒有data",err as Any)
                 completion(nil,ServiceError.noData)
 
                 return}
@@ -170,12 +170,12 @@ extension UserService {
     
     
     
-    func getMineUserData(login:String?,token:String?, completion: @escaping((UserDetailModel?,Error?) -> Void)){
+    func getMineUserData(token:String?, completion: @escaping((UserDetailModel?,Error?) -> Void)){
         
         
 //        print("開始跑getUSer:",login)
         
-        guard let login = login, let token = token  else {
+        guard let token = token  else {
             
             print("沒有token")
             
@@ -188,8 +188,7 @@ extension UserService {
         let component = URLComponents(string: "https://api.github.com/user/")
 
         var header = baseHeader
-//        header.add(name: "Accept", value: "application/vnd.github.v3+json")
-//        header.add(name: "Content-Type", value: "application/json;charset=utf-8")
+//   34
         header.add(name: "Authorization", value: "token \(token)")
 
         guard let url = component?.url else {
@@ -204,7 +203,7 @@ extension UserService {
         URLSession.shared.dataTask(with: req, completionHandler: {data, response, err in
             
             guard let data = data else {
-                print("沒有data",err)
+                print("沒有data",err as Any)
                 completion(nil,ServiceError.noData)
 
                 return}
