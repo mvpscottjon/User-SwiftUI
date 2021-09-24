@@ -11,9 +11,10 @@ import Foundation
 struct Constants {
     
     
-   static let token = "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"
     
     
+//    static let token = "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"
+
 }
 
 

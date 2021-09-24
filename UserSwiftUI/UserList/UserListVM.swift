@@ -34,7 +34,7 @@ extension UserListVM{
         
         self.isLoadingPage = true
         
-        UserService.shared.getUserList(token: Constants.token,per_page: self.per_page,since: 0,  completion: {arr , err in
+        UserService.shared.getUserList(per_page: self.per_page,since: 0,  completion: {arr , err in
             
             guard err == nil  , let arr = arr else {
                 
@@ -82,7 +82,7 @@ extension UserListVM{
         
         self.isLoadingPage = true
         
-        UserService.shared.getUserList(token: Constants.token,per_page:self.per_page,since: self.lastSinceId,  completion: {arr , err in
+        UserService.shared.getUserList(per_page:self.per_page,since: self.lastSinceId,  completion: {arr , err in
             
             
             guard err == nil , let arr = arr else {
