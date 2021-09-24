@@ -27,7 +27,7 @@ struct UserListContentView: View {
     var body: some View {
         
       
-        NavigationView {
+//        NavigationView {
 
         //MARK: List
        
@@ -53,21 +53,26 @@ struct UserListContentView: View {
                     self.selectedUser = user
                     self.showModal.toggle()
                 }
+                .onAppear(perform: {
+                    self.viewModel.loadMoreUserList()
+
+                    
+                })
             
             
             
             }
               
         
-        .environment(\.defaultMinListRowHeight, 70)
+        .environment(\.defaultMinListRowHeight, 80)
         
 
             
         
             
-        .navigationBarTitle("Github")
+//        .navigationBarTitle("Github")
         
-        }
+//        }
         .sheet(isPresented: $showModal, content: {
             
 //            UserDetailContentView(user: self.$selectedUser)
@@ -77,8 +82,7 @@ struct UserListContentView: View {
         .onAppear{
             
             print("list appear ")
-            self.viewModel.loadUserList()
-            
+//            self.viewModel.loadUserList()
         }
            
             

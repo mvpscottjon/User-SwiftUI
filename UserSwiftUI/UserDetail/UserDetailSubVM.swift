@@ -10,21 +10,21 @@ import Foundation
 class UserDetailSubVM:NSObject{
     
     var fullName:String? {
-        print("看一下fullname:",self._user?.name)
+//        print("看一下fullname:",self._user?.name)
 
         return self._user?.name ?? self._user?.login
     }
     
     var login:String?{
         
-        print("看一下nickname:",self._user?.login)
+//        print("看一下nickname:",self._user?.login)
         
         return self._user?.login
         
     }
     
     var userPhotoURL:URL?{
-        print("看一下 photoUrl :",self._user?.avatar_url?.toURL(), self._user?.avatar_url)
+//        print("看一下 photoUrl :",self._user?.avatar_url?.toURL(), self._user?.avatar_url)
         return self._user?.avatar_url?.toURL()
         
     }

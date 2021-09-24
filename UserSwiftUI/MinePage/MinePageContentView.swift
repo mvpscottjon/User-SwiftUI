@@ -22,7 +22,7 @@ struct MinePageContentView: View {
 //        ZStack(alignment: Alignment(horizontal: .center, vertical: .top), content: {
         
         
-        NavigationView{
+//        NavigationView{
             
             
             VStack(alignment: .leading){
@@ -113,9 +113,9 @@ struct MinePageContentView: View {
             }
             
          
-                .navigationBarTitle("Github", displayMode: .inline)
+//                .navigationBarTitle("Github", displayMode: .inline)
             
-        }
+//        }
         
         
        

@@ -35,7 +35,7 @@ class UserService :NSObject{
 
 extension UserService {
     
-    func getUserList(token:String?,completion: @escaping([UserListModel]?,Error?) -> Void){
+    func getUserList(token:String?,per_page:Int,since:Int,completion: @escaping([UserListModel]?,Error?) -> Void){
         
         guard let token = token  else {
             
@@ -44,7 +44,6 @@ extension UserService {
             return}
         
         
-        let component = URLComponents(string: "https://api.github.com/users")
         
         
         var header = baseHeader
@@ -52,6 +51,15 @@ extension UserService {
 //        header.add(name: "Content-Type", value: "application/json;charset=utf-8")
         header.add(name: "Authorization", value: "token \(token)")
 
+        
+        var component = URLComponents(string: "https://api.github.com/users")
+
+        
+        let per_pageItem = URLQueryItem(name: "per_page", value: "\(per_page)")
+        let sinceItem = URLQueryItem(name: "since", value: "\(since)")
+        
+        
+        component?.queryItems = [per_pageItem, sinceItem]
         
        
         
@@ -86,7 +94,7 @@ extension UserService {
                 return}
             
             
-            print("解完",arr.count)
+//            print("解完",arr.count)
             
             
             completion(arr,nil)
