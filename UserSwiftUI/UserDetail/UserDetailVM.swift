@@ -28,7 +28,7 @@ extension UserDetailVM{
         
 //        print("跑loadUserDetail," , login)
         
-        UserService.shared.getUser(login: login, token: Constants.token,completion: { obj, err in
+        UserService.shared.getUser(login: login, completion: { obj, err in
             
             guard err == nil else {return}
             
